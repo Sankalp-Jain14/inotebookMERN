@@ -49,12 +49,12 @@ router.post(
       const authtoken = jwt.sign(data, JWT_SECRET);
       console.log(authtoken);
 
-      res.json({ authtoken });   //"authtoken": "example-jwt-value"
+      res.json({authtoken});   //"authtoken": "example-jwt-value"
       // res.json(user);
     } catch (error) {
       //catch errors
       console.error(error.message);
-      res.status(500).send("Inernal server Error");
+      res.status(500).send("Internal server Error");
     }
   }
 );
@@ -76,6 +76,7 @@ router.post(
     const { email, password } = req.body; // req.body ke andar se email aur password nikala aur ise hi hum destructuring bolte h
     try {
       let user = await User.findOne({ email }); //User ko le rahe ho
+      // console.log(user)
       if (!user) {
         return res
           .status(400)

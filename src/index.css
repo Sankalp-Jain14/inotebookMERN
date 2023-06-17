@@ -10,6 +10,10 @@ body, html {
     background-color: #f0f0f0;
     color: #333;
   }
+
+  i{
+    cursor: pointer;
+  }
   
   /* Add any other global styles as needed */
   

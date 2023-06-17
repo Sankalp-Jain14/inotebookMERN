@@ -83,7 +83,7 @@ router.post(
           .json({ error: "Please try to login with correct credentials" });
       }
       const passwordCompare = await bcrypt.compare(password, user.password); //compare kiya abhi ke password ko aur database me present password ko
-      if (!passwordCompare) {
+      if (!passwordCompare) { //passwordCompare will have boolean value
         return res
           .status(400)
           .json({ error: "Please try to login with correct credentials" });
@@ -107,7 +107,7 @@ router.post(
 // Route 3 Get logged in yser details using : POST "/api/auth/getuser".Login required
 router.post("/getuser",fetchuser, async (req, res) => {
   try {
-    userId = req.user.id;
+    const userId = req.user.id;
     const user = await User.findById(userId).select("-password");
     res.send(user)
   } catch (error) {

@@ -8,7 +8,7 @@ const port = 5000
 app.use(express.json()) //using middleware to use req.body
 
 // Available Routes
-app.use('/api/auth',require('./routes/auth'))
+app.use('/api/auth',require('./routes/auth'))  //    /api/auth path pr jane ke liye ye(/routes/auth) file me jao
 app.use('/api/notes',require('./routes/notes'))
 
 

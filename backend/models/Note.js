@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const NotesSchema = new Schema({
     user:{
-        type: mongoose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,  //to let the uer access only his notes, you have to associate notes with the user
         ref:'user'
     },
     title: {

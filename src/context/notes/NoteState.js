@@ -2,6 +2,7 @@ import React from "react";
 import NoteContext from "./noteContext";
 import { useState } from "react";
 const NoteState = (props) => {
+  const host = "http://localhost:5000"
   const notesInitial = [
     {
       _id: "647c8770ff32c5ee01709448",
@@ -78,13 +79,27 @@ const NoteState = (props) => {
   }
 
   //Delete a Note
-  const deleteNote = ()=>{
-
+  const deleteNote = (id)=>{
+    console.log("Deleting the note with id" + id);
+    const newNotes = notes.filter((note)=>{return note._id!==id})
+    setNotes(newNotes)
   }
 
   //Edit a Note
-  const editNote = ()=>{
+  const editNote = async (id, title, description , tag)=>{
+    //API call
     
+
+     
+    // Logic to edit in client
+    for (let index = 0; index < notes.length ; index++){
+      const element = notes[index];
+      if(element._id ===id){
+        element.title = title;
+        element.description = description;
+        element.tag = tag;
+      }
+    }
   }
 
 
